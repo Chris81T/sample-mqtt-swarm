@@ -1,8 +1,8 @@
 package de.chrthms.research.swarm.mqttswarm.rest;
 
 
-import de.chrthms.mco.MicroProcessEngine;
-import de.chrthms.mco.MicroProcessEngineFactory;
+import de.chrthms.iot.MicroProcessEngine;
+import de.chrthms.iot.MicroProcessEngineFactory;
 import org.camunda.bpm.engine.repository.Deployment;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -13,8 +13,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import java.io.File;
-import java.io.InputStream;
 import java.time.LocalDateTime;
 
 /**
@@ -95,6 +93,33 @@ public class HelloWorldEndpoint {
             e.printStackTrace();
         }
 
+
+        return Response.ok().build();
+    }
+
+	@GET
+    @Path("/bpmn")
+    @Produces("text/plain")
+    public Response bpmn() {
+
+	    System.out.println("About to publish a message to the pihab broker using BPMN...");
+
+        final String driver = "org.h2.Driver";
+        final String url = "jdbc:h2:mem:bpmn";
+        final String username = "sa";
+        final String password = "sa";
+
+        MicroProcessEngine processEngine = MicroProcessEngineFactory.getInstance()
+                .jdbcDriver(driver)
+                .jdbcUrl(url)
+                .jdbcUsername(username)
+                .jdbcPassword(password)
+                .build();
+
+        processEngine.createDeploymentFromResource("mqtt.bpmn");
+
+        ProcessInstance processInstance = processEngine.getRuntimeService()
+                .startProcessInstanceByKey("Process_MqttPublish");
 
         return Response.ok().build();
     }

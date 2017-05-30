@@ -1,15 +1,12 @@
 package de.chrthms.research.swarm.mqttswarm.delegates;
 
-import de.chrthms.mco.delegates.MicroDelegateExecution;
-import de.chrthms.mco.delegates.MicroJavaDelegate;
-import de.chrthms.mco.delegates.MicroJavaDelegateInterface;
-import org.camunda.bpm.engine.delegate.DelegateExecution;
-import org.camunda.bpm.engine.delegate.JavaDelegate;
+import de.chrthms.iot.delegates.MicroDelegateExecution;
+import de.chrthms.iot.delegates.MicroJavaDelegate;
 
 /**
  * Created by christian on 23.05.17.
  */
-public class HelloDelegate implements MicroJavaDelegateInterface {
+public class HelloDelegate implements MicroJavaDelegate {
 
     @Override
     public void execute(MicroDelegateExecution microDelegateExecution) throws Exception {

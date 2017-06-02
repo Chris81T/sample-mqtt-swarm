@@ -1,8 +1,8 @@
 package de.chrthms.research.swarm.mqttswarm.rest;
 
 
-import de.chrthms.iot.MicroProcessEngine;
-import de.chrthms.iot.MicroProcessEngineFactory;
+import de.chrthms.bpm.iot.MicroProcessEngine;
+import de.chrthms.bpm.iot.MicroProcessEngineFactory;
 import org.camunda.bpm.engine.repository.Deployment;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.eclipse.paho.client.mqttv3.MqttClient;

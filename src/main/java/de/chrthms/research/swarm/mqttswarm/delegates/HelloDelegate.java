@@ -1,7 +1,7 @@
 package de.chrthms.research.swarm.mqttswarm.delegates;
 
-import de.chrthms.iot.delegates.MicroDelegateExecution;
-import de.chrthms.iot.delegates.MicroJavaDelegate;
+import de.chrthms.bpm.iot.delegates.MicroDelegateExecution;
+import de.chrthms.bpm.iot.delegates.MicroJavaDelegate;
 
 /**
  * Created by christian on 23.05.17.
